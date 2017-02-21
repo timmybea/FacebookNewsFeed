@@ -11,6 +11,9 @@
 		B04BAB3B1E5CCBAD005868F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04BAB3A1E5CCBAD005868F7 /* Assets.xcassets */; };
 		B04BAB3E1E5CCBAD005868F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04BAB3C1E5CCBAD005868F7 /* LaunchScreen.storyboard */; };
 		B04BAB461E5CCC43005868F7 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB451E5CCC43005868F7 /* NewsFeedViewController.swift */; };
+		B04BAB4D1E5CCFFE005868F7 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB4C1E5CCFFE005868F7 /* ColorManager.swift */; };
+		B04BAB4F1E5CD5D0005868F7 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB4E1E5CD5D0005868F7 /* FeedCell.swift */; };
+		B04BAB511E5CDD20005868F7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB501E5CDD20005868F7 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		B04BAB3D1E5CCBAD005868F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B04BAB3F1E5CCBAD005868F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B04BAB451E5CCC43005868F7 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		B04BAB4C1E5CCFFE005868F7 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		B04BAB4E1E5CD5D0005868F7 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		B04BAB501E5CDD20005868F7 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,7 @@
 		B04BAB321E5CCBAD005868F7 /* FacebookNewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B04BAB4B1E5CCFDE005868F7 /* Helpers */,
 				B04BAB491E5CCCBD005868F7 /* Controller */,
 				B04BAB4A1E5CCCC4005868F7 /* View */,
 				B04BAB481E5CCCB6005868F7 /* Model */,
@@ -81,8 +88,18 @@
 		B04BAB4A1E5CCCC4005868F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B04BAB4E1E5CD5D0005868F7 /* FeedCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		B04BAB4B1E5CCFDE005868F7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B04BAB4C1E5CCFFE005868F7 /* ColorManager.swift */,
+				B04BAB501E5CDD20005868F7 /* Helpers.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04BAB4D1E5CCFFE005868F7 /* ColorManager.swift in Sources */,
+				B04BAB4F1E5CD5D0005868F7 /* FeedCell.swift in Sources */,
 				B04BAB341E5CCBAD005868F7 /* AppDelegate.swift in Sources */,
+				B04BAB511E5CDD20005868F7 /* Helpers.swift in Sources */,
 				B04BAB461E5CCC43005868F7 /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

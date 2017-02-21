@@ -8,14 +8,39 @@
 
 import UIKit
 
-class NewsFeedViewController: UIViewController {
+class NewsFeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    let cellID = "CellID"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Facebook Feed"
 
-        self.navigationItem.title = "News Feed"
-        self.view.backgroundColor = UIColor.white
+        collectionView?.alwaysBounceVertical = true
+        
+        self.collectionView?.backgroundColor = UIColor.lightGray
+        
+        collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: cellID)
     }
+    
+    
+//    MARK: CollectionView delegate methods
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        return cell
+    }
+    
+    //MARK: CollectionViewFlowDelegate method
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

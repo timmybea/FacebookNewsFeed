@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let layout = UICollectionViewFlowLayout()
         window?.rootViewController = UINavigationController(rootViewController: NewsFeedViewController(collectionViewLayout: layout))
-        UINavigationBar.appearance().barTintColor = ColorManager.cutomBlue()
+        UINavigationBar.appearance().barTintColor = ColorManager.customBlue()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         application.statusBarStyle = UIStatusBarStyle.lightContent
         //info.plist ->viewController based status bar

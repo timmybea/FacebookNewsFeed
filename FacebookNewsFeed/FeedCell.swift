@@ -12,12 +12,18 @@ class FeedCell: UICollectionViewCell {
 
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sample name"
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        let attributedString = NSMutableAttributedString(string: "Bart Simpson", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+        label.attributedText = attributedString
         label.textColor = ColorManager.cutomBlue()
-        label.translatesAutoresizingMaskIntoConstraints = false
-      //  label.backgroundColor
         return label
+    }()
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Bart-Simpson-01-icon")
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = ColorManager.cutomBlue()
+        return imageView
     }()
     
     override init(frame: CGRect) {
@@ -30,13 +36,12 @@ class FeedCell: UICollectionViewCell {
         backgroundColor = UIColor.white
         
         addSubview(nameLabel)
+        addSubview(profileImageView)
         
         //Custom extension method declared in Helpers
-        addConstraintsWithFormat("H:|[v0]|", for: nameLabel)
-        addConstraintsWithFormat("V:|[v0]|", for: nameLabel)
-        
-//        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
-//        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+        addConstraintsWithFormat("H:|-8-[v0(44)]-8-[v1]|", for: profileImageView, nameLabel)
+        addConstraintsWithFormat("V:|-8-[v0(44)]", for: profileImageView)
+        addConstraintsWithFormat("V:|-8-[v0(20)]", for: nameLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {

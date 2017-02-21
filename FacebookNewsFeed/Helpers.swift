@@ -12,16 +12,12 @@ import UIKit
 extension UIView {
     
     func addConstraintsWithFormat(_ format: String, for views: UIView...) {
-        
-        var viewNumber = 0
         var viewsDictionary = [String: UIView]()
-        
-        for view in views {
-            let viewString = "v\(viewNumber)"
+        for (index, view) in views.enumerated() {
+            let viewString = "v\(index)"
             viewsDictionary[viewString] = view
-            viewNumber += 1
+            view.translatesAutoresizingMaskIntoConstraints = false
         }
-        
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }

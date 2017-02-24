@@ -20,6 +20,11 @@ class ColorManager: NSObject {
         return UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1)
 
     }
+    
+    
+    class func customlightGrayBG() -> UIColor {
+        return UIColor(red: 226/255, green: 228/255, blue: 232/255, alpha: 1)
+    }
 
 }
 

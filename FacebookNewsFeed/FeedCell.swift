@@ -59,6 +59,40 @@ class FeedCell: UICollectionViewCell {
         return imageView
     }()
     
+    let likesCommentsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "488 likes      1.6k Comments"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = ColorManager.customGrayText()
+        return label
+    }()
+    
+    let dividerLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = ColorManager.customlightGrayBG()
+        return view
+    }()
+    
+    
+    let likeButton: UIButton = FeedCell.createButtonFor(title: "Like", imageName: "like_icon")
+    let commentButton: UIButton = FeedCell.createButtonFor(title: "Comment", imageName: "comment_icon")
+    let shareButton: UIButton = FeedCell.createButtonFor(title: "Share", imageName: "share_icon")
+    
+    //similar to a class function, but it cannot be overridden
+    static func createButtonFor(title: String, imageName: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(ColorManager.customGrayText(), for: .normal)
+        
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        //This creates the spacing to the left of the title (top, left, bottom, right)
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, 8, 0, 0)
+        return button
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     
@@ -72,14 +106,26 @@ class FeedCell: UICollectionViewCell {
         addSubview(profileImageView)
         addSubview(statusTextView)
         addSubview(statusImageView)
+        addSubview(likesCommentsLabel)
+        addSubview(dividerLineView)
+        addSubview(likeButton)
+        addSubview(commentButton)
+        addSubview(shareButton)
         
         //Custom extension method declared in Helpers
         addConstraintsWithFormat("H:|-8-[v0(44)]-8-[v1]|", for: profileImageView, nameLabel)
-        addConstraintsWithFormat("V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]|", for: profileImageView, statusTextView, statusImageView)
+        addConstraintsWithFormat("V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]-8-[v3(24)]-8-[v4(1)][v5(44)]|", for: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
         addConstraintsWithFormat("V:|-8-[v0]", for: nameLabel)
         addConstraintsWithFormat("H:|-4-[v0]-4-|", for: statusTextView)
         addConstraintsWithFormat("H:|[v0]|", for: statusImageView)
+        addConstraintsWithFormat("H:|-8-[v0]|", for: likesCommentsLabel)
+        addConstraintsWithFormat("H:|-8-[v0]-8-|", for: dividerLineView)
+        addConstraintsWithFormat("H:|[v0(v2)][v1(v2)][v2]|", for: likeButton, commentButton, shareButton)
+        //Note the share spacing format above ^
+        addConstraintsWithFormat("V:[v0(44)]|", for: commentButton)
+        addConstraintsWithFormat("V:[v0(44)]|", for: shareButton)
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

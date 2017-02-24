@@ -19,13 +19,20 @@ class NewsFeedViewController: UICollectionViewController, UICollectionViewDelega
 
         collectionView?.alwaysBounceVertical = true
         
-        self.collectionView?.backgroundColor = UIColor.lightGray
+        self.collectionView?.backgroundColor = ColorManager.customlightGrayBG()
         
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: cellID)
     }
     
     
-//    MARK: CollectionView delegate methods
+    //MARK: change layout based on orientation // We need to invalidate the layout and redraw it when the orientation changes.
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
+    //MARK: CollectionView delegate methods
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -37,7 +44,7 @@ class NewsFeedViewController: UICollectionViewController, UICollectionViewDelega
     
     //MARK: CollectionViewFlowDelegate method
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 300)
+        return CGSize(width: view.frame.width, height: 400)
     }
     
     

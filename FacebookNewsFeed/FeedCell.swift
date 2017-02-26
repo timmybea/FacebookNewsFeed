@@ -9,35 +9,46 @@
 import UIKit
 
 class FeedCell: UICollectionViewCell {
+    
+    var statusObject: StatusObject? {
+        didSet {
+            if let name = statusObject?.name {
+                
+                let attributedString = NSMutableAttributedString(string: name, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
+                attributedString.append(NSAttributedString(string: "\nFebruary 21st ∙ Springfield ∙ ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName: ColorManager.customGrayText()]))
+                
+                //add line spacing
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 4
+                attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.string.characters.count))
+                
+                
+                //add globe image as text attribute
+                let attachment = NSTextAttachment()
+                attachment.image = UIImage(named: "globe-01-512")
+                attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
+                attributedString.append(NSAttributedString(attachment: attachment))
+                
+                nameLabel.attributedText = attributedString
+                
+                if let text = statusObject?.statusText {
+                    statusTextView.text = text
+                }
+            }
+        }
+    }
 
     let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        
-        let attributedString = NSMutableAttributedString(string: "Bart Simpson", attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14)])
-        attributedString.append(NSAttributedString(string: "\nFebruary 21st ∙ Springfield ∙ ", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName: ColorManager.customGrayText()]))
-        
-        //add line spacing
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 4
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.string.characters.count))
-        
-        
-        //add globe image as text attribute
-        let attachment = NSTextAttachment()
-        attachment.image = UIImage(named: "globe-01-512")
-        attachment.bounds = CGRect(x: 0, y: -2, width: 12, height: 12)
-        attributedString.append(NSAttributedString(attachment: attachment))
-    
-        label.attributedText = attributedString
         
         return label
     }()
     
     let statusTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Eat my shorts!"
         textView.font = UIFont.systemFont(ofSize: 14)
+        textView.backgroundColor = UIColor.green
         return textView
     }()
     
@@ -114,7 +125,9 @@ class FeedCell: UICollectionViewCell {
         
         //Custom extension method declared in Helpers
         addConstraintsWithFormat("H:|-8-[v0(44)]-8-[v1]|", for: profileImageView, nameLabel)
-        addConstraintsWithFormat("V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]-8-[v3(24)]-8-[v4(1)][v5(44)]|", for: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
+        
+        //Don't give the text view a hard-coded height, so that it can expand to fill the remaining allowable space of the cell.
+        addConstraintsWithFormat("V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-8-[v4(1)][v5(44)]|", for: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
         addConstraintsWithFormat("V:|-8-[v0]", for: nameLabel)
         addConstraintsWithFormat("H:|-4-[v0]-4-|", for: statusTextView)
         addConstraintsWithFormat("H:|[v0]|", for: statusImageView)

@@ -14,6 +14,7 @@
 		B04BAB4D1E5CCFFE005868F7 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB4C1E5CCFFE005868F7 /* ColorManager.swift */; };
 		B04BAB4F1E5CD5D0005868F7 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB4E1E5CD5D0005868F7 /* FeedCell.swift */; };
 		B04BAB511E5CDD20005868F7 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BAB501E5CDD20005868F7 /* Helpers.swift */; };
+		B07780061E5FBABB000326CB /* StatusObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07780051E5FBABB000326CB /* StatusObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B04BAB4C1E5CCFFE005868F7 /* ColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		B04BAB4E1E5CD5D0005868F7 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		B04BAB501E5CDD20005868F7 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		B07780051E5FBABB000326CB /* StatusObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				B04BAB331E5CCBAD005868F7 /* AppDelegate.swift */,
+				B07780051E5FBABB000326CB /* StatusObject.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07780061E5FBABB000326CB /* StatusObject.swift in Sources */,
 				B04BAB4D1E5CCFFE005868F7 /* ColorManager.swift in Sources */,
 				B04BAB4F1E5CD5D0005868F7 /* FeedCell.swift in Sources */,
 				B04BAB341E5CCBAD005868F7 /* AppDelegate.swift in Sources */,
@@ -333,6 +337,7 @@
 				B04BAB441E5CCBAD005868F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

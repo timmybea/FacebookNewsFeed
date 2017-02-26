@@ -21,3 +21,27 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
+
+class DataSource: NSObject {
+    
+    class func returnStatusObjects() -> [StatusObject] {
+        
+        var statusObjects = [StatusObject]()
+        
+        let bartStatus = StatusObject(name: "Bart Simpson")
+        bartStatus.statusText = "I didn't do it, nobody saw me do it, there's no way you can prove anything!"
+        
+        let homerStatus = StatusObject(name: "Homer Simpson")
+        homerStatus.statusText = "Donuts. Is there anything they can't do?"
+        
+        
+        statusObjects.append(bartStatus)
+        statusObjects.append(homerStatus)
+        
+        
+        return statusObjects
+    }
+    
+    
+    
+}

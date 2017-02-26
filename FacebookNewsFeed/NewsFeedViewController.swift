@@ -61,7 +61,7 @@ class NewsFeedViewController: UICollectionViewController, UICollectionViewDelega
             
             let rect = NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
 
-            return CGSize(width: view.frame.width, height: (knownHeight + rect.height + 16))
+            return CGSize(width: view.frame.width, height: (knownHeight + rect.height + 18))
         } else {
             return CGSize(width: view.frame.width, height: knownHeight)
         }

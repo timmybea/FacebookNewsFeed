@@ -30,10 +30,13 @@ class DataSource: NSObject {
         
         let bartStatus = StatusObject(name: "Bart Simpson")
         bartStatus.statusText = "I didn't do it, nobody saw me do it, there's no way you can prove anything!"
+        bartStatus.imageName = "swimming_bart"
+        bartStatus.profileImageName = "Bart-Simpson-01-icon"
         
         let homerStatus = StatusObject(name: "Homer Simpson")
         homerStatus.statusText = "Donuts. Is there anything they can't do?"
-        
+        homerStatus.imageName = "donut_image"
+        homerStatus.profileImageName = "homer_profile"
         
         statusObjects.append(bartStatus)
         statusObjects.append(homerStatus)

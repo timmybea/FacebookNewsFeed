@@ -34,6 +34,14 @@ class FeedCell: UICollectionViewCell {
                 if let text = statusObject?.statusText {
                     statusTextView.text = text
                 }
+                
+                if let imageName = statusObject?.imageName {
+                    statusImageView.image = UIImage(named: imageName)
+                }
+                
+                if let profileImageName = statusObject?.profileImageName {
+                    profileImageView.image = UIImage(named: profileImageName)
+                }
             }
         }
     }
@@ -48,7 +56,7 @@ class FeedCell: UICollectionViewCell {
     let statusTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 14)
-        textView.backgroundColor = UIColor.green
+        textView.isScrollEnabled = false
         return textView
     }()
     
@@ -63,7 +71,6 @@ class FeedCell: UICollectionViewCell {
     
     let statusImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "swimming_bart")
         imageView.backgroundColor = ColorManager.customBlue()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
